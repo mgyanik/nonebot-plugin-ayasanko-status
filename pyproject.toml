@@ -1,0 +1,32 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "nonebot-plugin-ayasanko-status"
+version = "0.1.0"
+description = "NoneBot2 system health and running status inspection plugin"
+authors = ["mgyanik <ymx09025@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/mgyanik/nonebot-plugin-ayasanko-status"
+repository = "https://github.com/mgyanik/nonebot-plugin-ayasanko-status"
+keywords = ["nonebot", "nonebot2", "status", "system", "monitor"]
+
+packages = [
+    { include = "nonebot_plugin_ayasanko_status" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+nonebot2 = ">=2.3.0"
+psutil = { version = ">=5.9.0", optional = true }
+ping3 = { version = ">=4.0.0", optional = true }
+
+[tool.poetry.extras]
+psutil = ["psutil"]
+ping = ["ping3"]
+all = ["psutil", "ping3"]
+
+[tool.nonebot]
+plugins = ["nonebot_plugin_ayasanko_status"]
